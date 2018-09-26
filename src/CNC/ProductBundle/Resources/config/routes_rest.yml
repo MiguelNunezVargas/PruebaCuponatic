@@ -1,0 +1,5 @@
+cnc_api_products:
+   resource: "@CNCProductBundle/Controller/ProductController.php"
+   type: rest
+   name_prefix: api_productscript_
+   prefix:   /productscript
