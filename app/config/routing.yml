@@ -1,7 +1,8 @@
 cnc_product:
-    resource: "@CNCProductBundle/Resources/config/routing.yml"
-    prefix:   /
+   resource: "@CNCProductBundle/Resources/config/routing.yml"
+   prefix:   /
 
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
+cnc_api:
+    resource: "@CNCProductBundle/Resources/config/routes_rest.yml"
+    type: rest
+    prefix:   /api

@@ -2,80 +2,61 @@
 
 namespace CNC\ProductBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
+use FOS\RestBundle\View\View;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Form\FormTypeInterface;
 use CNC\ProductBundle\Entity\Logs;
+use CNC\ProductBundle\Entity\Product;
+use CNC\ProductBundle\Form\ProductType;
+use CNC\ProductBundle\Controller\AbstractProductController;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
-class ProductController extends Controller
+class ProductController extends AbstractProductController
 {
-    public function indexAction()
+    /**
+     * REST que obtiene listado de productos según key otorgada
+     * Retorna vacío si no hay registros
+     * Method: POST, url: /api/productscript/busquedas.{_format}
+     *
+     * @ApiDoc(
+     *   resource = true,
+     *   description = "Productos por key entregada",
+     *   output = "array",
+     *   statusCodes = {
+     *     200 = "Retorna cuando sale ok"
+     *   }
+     * )
+     *
+     * @param Request $request
+     * @return array
+     */
+    public function postBusquedaAction(Request $request) 
     {
-        return $this->render('CNCProductBundle:Product:index.html.twig');
+        return parent::postBusqueda($request);
     }
 
-    public function busquedaAction(Request $request)
+
+    /**
+     * REST que obtiene listado de los 20 coincidencias de productos más buscadas
+     * Retorna vacío si no hay registros
+     * Method: GET, url: /api/productscript/estadisticas.{_format}
+     *
+     * @ApiDoc(
+     *   resource = true,
+     *   description = "Lista 20 productos más buscados",
+     *   output = "array",
+     *   statusCodes = {
+     *     200 = "Retorna cuando sale ok"
+     *   }
+     * )
+     *
+     * @param Request $request
+     * @return array
+     */
+    public function getEstadisticasAction(Request $request) 
     {
-		$data = $request->get('keyword');
-		$em = $this->getDoctrine()->getManager();
-		$products = $em ->getRepository('CNCProductBundle:Product')->createQueryBuilder('p')
-                ->select('p.id, p.titulo, p.descripcion')
-                ->where('p.titulo LIKE :data')
-                ->setParameter('data', '%'.(string) $data.'%')
-                ->getQuery()
-                ->getResult();
-        $res = "";
-        
-        if(count($products) > 0){
-			foreach ($products as $product) {
-	        	$res.= "Titulo: ". $product['titulo']. "<br/>";
-	        	$logs = new logs();
-	        	$logs->setProductoId($product['id']);
-	        	$logs->setKeyword($data);
-	        	$em->persist($logs);
-	            $em->flush();
-	        }
-    	}
-        
-        
-        $response = new JsonResponse();
-        $response->setData(array('respuesta' => $products));
-		return $response;
+        return parent::getEstadisticas($request);
     }
 
-
-    public function logsAction(){
-    	return $this->render('CNCProductBundle:Product:logs.html.twig');
-    }
-
-    public function estadisticasAction(){
-
-    	$em = $this->getDoctrine()->getManager();
-    	$conn = $em->getConnection();
-    	$sql = '
-    		SELECT 
-			productos_productos_id, 
-			COUNT(productos_productos_id) as totalRegistros,
-			GROUP_CONCAT(DISTINCT(keyword)) as keywords
-			FROM logs
-			GROUP BY productos_productos_id
-			ORDER BY totalRegistros DESC
-			LIMIT 20
-		';
-		$stmt = $conn->prepare($sql);
-		$stmt->execute();
-		$logs = $stmt->fetchAll();
-		
-		$registros = array();
-		foreach ($logs as $log ) {
-			$producto = $em->getRepository('CNCProductBundle:Product')->findById($log['productos_productos_id']);
-			array_push($registros, array('titulo' => $producto[0]->getTitulo(), 'keywords' => $log["keywords"]));
-		}
-		
-		$response = new JsonResponse();
-        $response->setData(array('respuesta' => $registros));
-		return $response;
-
-    }
 }

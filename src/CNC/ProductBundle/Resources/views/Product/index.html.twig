@@ -1,92 +1,81 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8" />
-		<title>Busqueda de productos</title>
-		{% block stylesheets %}
-			<link rel="stylesheet" type="text/css" href="{{ asset('public/css/bootstrap.min.css') }}">
-		{% endblock %}
-		{% block javascripts %}
-			<script type="text/javascript" src="{{ asset('public/js/jquery-3.3.1.min.js') }}"></script>
-			<script type="text/javascript" src="{{ asset('public/js/bootstrap.min.js') }}"></script>
-		{% endblock %}
-		<script type="text/javascript">
-			function buscarProductos(){
-				var keyword = $('#busqueda_producto').val();
-				$('#resultados').html("");
-				//url del servicio de busqueda
-				var URLBUSCARPRODUCTOS = '{{ path('cnc_product_busqueda') }}';
-				if ( keyword.length >= 4 ) { // Minimo de caracteres
-		            var data = {keyword: keyword};
-		            $.ajax({
-		                type: 'POST',
-		                url: URLBUSCARPRODUCTOS,
-		                data: data,
-		                dataType: 'json',
-		                timeout: 3000,
-		                success: function(response){
-		                	var productosEncontrados = response['respuesta'];
-		                	if(productosEncontrados.length>0){
-								for (var i = 0; i < productosEncontrados.length; i++) {
-			                		//console.log(productosEncontrados[i]['titulo']);
-		                			var texto = "";
-		                			texto+='<tr><td>'+productosEncontrados[i]['titulo']+'</td>';
-		                			texto+='<td>'+productosEncontrados[i]['descripcion']+'</td></tr>';
-		                			$('#resultados').append(texto);
-			                	}
-		                	} else{
-	                			alert('Sin coincidencias');
-		                	}
-		                	
-		                },
-		                error: function() {
-		                   alert('Sin conexion');
-		                }
-		            });
-		        } else {
-		           alert("La Búsqueda debe ser de más de 4 carácteres");
-		        }
-			}
-		</script>
-	</head>
-	<body>
-		<nav class="navbar navbar-default">
-		  <div class="container-fluid">
-		   	<div class="navbar-header">
-		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-		        <span class="sr-only"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		      </button>
-		      <a class="navbar-brand" href="#">Miguel Nuñez</a>
-		    </div>
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		      <ul class="nav navbar-nav">
-		        <li class="active"><a href="#">Búsqueda Productos <span class="sr-only">(current)</span></a></li>
-		        <li><a href="{{ path('cnc_product_logs') }}">Estadisticas</a></li>
-		      </ul>
-		    </div>
-		  </div>
-		</nav>
-		<h2>Busque el producto</h2>
-		<form class="form-inline" role="form">
-		  <div class="form-group">
-		    <label class="sr-only" for="busqueda_producto">Producto</label>
-		    <input type="text" class="form-control" id="busqueda_producto"
-		           placeholder="Busque el producto">
-		  </div>
-		  <button type="button" class="btn btn-default" onclick="buscarProductos()">Buscar</button>
-		  <br/><br/>	
-		  <table class="table">
-		  	<thead>
-			    <tr>
-			      <th scope="col">Titulo</th>
-			      <th scope="col">Descripción</th>
-			    </tr>
-		  	</thead>
-		  	<tbody id="resultados"></tbody>
-		  </table>
-		</form>
-	</body>
+<!--[if lt IE 7]>
+<html lang="en" ng-app="conicyt-myapp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="conicyt-myapp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="conicyt-myapp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="cnc-myapp" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Módulo de búsqueda de productos</title>
+    <meta name="description"
+          content="Modulo de búsqueda de productos hecho en symfony 2 + angularjs">
+    <meta name="keywords" content="symfony2, angularjs">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% block stylesheets %}
+        <!-- estilos externos -->
+        <link rel="stylesheet" href="{{ asset ('public/js/app/assets/css/libraries/bootstrap.min.css') }}" type='text/css' media='all'>
+
+        <!-- estilos internos -->
+        <link rel="stylesheet" href="{{ asset ('public/js/app/assets/css/app.css') }}">
+    {% endblock %}
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Miguel Nuñez </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav" ng-controller="NavigationCtrl">
+                <li ng-class="{ active: isCurrentPath('product')}">
+                    <a ui-sref="product">Búsqueda Productos</a>
+                </li>
+                <li ng-class="{ active: isCurrentPath('logs')}">
+                    <a ui-sref="logs">Estadisticas</a>
+                </li>
+              </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a
+                href="http://browsehappy.com/">upgrade
+            your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div ui-view></div>
+    </div>
+    <!-- componentes externas -->
+    {% block javascripts %}
+        <script src="{{ asset ('public/js/app/libraries/angular/angular.js') }}"></script>
+        <script 
+            src="{{ asset ('public/js/app/libraries/angular-ui-router/release/angular-ui-router.min.js') }}">
+        </script>
+        <script src="https://code.angularjs.org/1.4.9/angular-resource.min.js"></script>
+        <script src="{{ asset ('public/js/app/libraries/jquery/dist/jquery.min.js') }}"></script>
+        <script src="{{ asset ('public/js/app/libraries/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+        
+        <!-- scripts -->
+        <script src="{{ asset ('public/js/app/app.js') }}"></script>
+        <script src="{{ asset ('public/js/app/routing.js') }}"></script>
+        <script src="{{ asset ('public/js/app/shared/directives.js') }}"></script>
+        <script src="{{ asset ('public/js/app/shared/filters.js') }}"></script>
+        <script src="{{ asset ('public/js/app/shared/services.js') }}"></script>
+        <script src="{{ asset ('public/js/app/shared/functions.js') }}"></script>        
+        <script src="{{ asset ('public/js/app/pages/product/product.js') }}"></script>
+        <script src="{{ asset ('public/js/app/pages/logs/logs.js') }}"></script>
+    {% endblock %}
+</body>
 </html>

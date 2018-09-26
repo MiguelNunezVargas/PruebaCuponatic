@@ -1,20 +1,3 @@
 cnc_product_homepage:
     path:     /
     defaults: { _controller: CNCProductBundle:Default:index }
-
-cnc_product_index:
-    path:     /product/index
-    defaults: { _controller: CNCProductBundle:Product:index }
-
-cnc_product_busqueda:
-    path:     /product/busqueda/
-    defaults: { _controller: CNCProductBundle:Product:busqueda}
-
-cnc_product_logs:
-    path:     /product/logs/
-    defaults: { _controller: CNCProductBundle:Product:logs}
-
-cnc_product_estadisticas:
-    path:     /product/estadisticas/
-    defaults: { _controller: CNCProductBundle:Product:estadisticas}      
-
