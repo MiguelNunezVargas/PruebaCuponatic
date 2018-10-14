@@ -1328,10 +1328,13 @@ $clientValues[] = (self::HEADER_CLIENT_PORT === $type ?'0.0.0.0:':'').trim($v);
 }
 if (self::$trustedHeaders[self::HEADER_FORWARDED] && $this->headers->has(self::$trustedHeaders[self::HEADER_FORWARDED])) {
 $forwardedValues = $this->headers->get(self::$trustedHeaders[self::HEADER_FORWARDED]);
-$forwardedValues = preg_match_all(sprintf('{(?:%s)=(?:"?\[?)([a-zA-Z0-9\.:_\-/]*+)}', self::$forwardedParams[$type]), $forwardedValues, $matches) ? $matches[1] : array();
+$forwardedValues = preg_match_all(sprintf('{(?:%s)="?([a-zA-Z0-9\.:_\-/\[\]]*+)}', self::$forwardedParams[$type]), $forwardedValues, $matches) ? $matches[1] : array();
 if (self::HEADER_CLIENT_PORT === $type) {
 foreach ($forwardedValues as $k => $v) {
-$forwardedValues[$k] = substr_replace($v,'0.0.0.0', 0, strrpos($v,':'));
+if (']'=== substr($v, -1) || false === $v = strrchr($v,':')) {
+$v = $this->isSecure() ?':443':':80';
+}
+$forwardedValues[$k] ='0.0.0.0'.$v;
 }
 }
 }
@@ -1358,8 +1361,14 @@ return array();
 }
 $clientIps[] = $ip; $firstTrustedIp = null;
 foreach ($clientIps as $key => $clientIp) {
-if (preg_match('{((?:\d+\.){3}\d+)\:\d+}', $clientIp, $match)) {
-$clientIps[$key] = $clientIp = $match[1];
+if (strpos($clientIp,'.')) {
+$i = strpos($clientIp,':');
+if ($i) {
+$clientIps[$key] = $clientIp = substr($clientIp, 0, $i);
+}
+} elseif (0 === strpos($clientIp,'[')) {
+$i = strpos($clientIp,']', 1);
+$clientIps[$key] = $clientIp = substr($clientIp, 1, $i - 1);
 }
 if (!filter_var($clientIp, FILTER_VALIDATE_IP)) {
 unset($clientIps[$key]);
@@ -1683,6 +1692,7 @@ public function expire()
 {
 if ($this->isFresh()) {
 $this->headers->set('Age', $this->getMaxAge());
+$this->headers->remove('Expires');
 }
 return $this;
 }
@@ -2494,11 +2504,11 @@ protected $booted = false;
 protected $name;
 protected $startTime;
 protected $loadClassCache;
-const VERSION ='2.8.44';
-const VERSION_ID = 20844;
+const VERSION ='2.8.45';
+const VERSION_ID = 20845;
 const MAJOR_VERSION = 2;
 const MINOR_VERSION = 8;
-const RELEASE_VERSION = 44;
+const RELEASE_VERSION = 45;
 const EXTRA_VERSION ='';
 const END_OF_MAINTENANCE ='11/2018';
 const END_OF_LIFE ='11/2019';

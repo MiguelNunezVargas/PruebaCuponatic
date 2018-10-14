@@ -10,7 +10,6 @@ use CNC\ProductBundle\Form\ProductType;
 use CNC\ProductBundle\Repository\ProductRepository;
 use CNC\ProductBundle\Repository\LogsRepository;
 use CNC\ProductBundle\Exception\InvalidFormException;
-//use SGalinski\TypoScriptBackendBundle\Utility\TypoScriptUtility;
 use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -18,7 +17,7 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 
 /**
- * The class TypeController contains API methods for interaction with  database type records.
+ * The class AbstractProductController Contiene los métodos de los cuales se alimenta ProductController, hace referencia a la búsqueda de productos.
  *
  * @package CNC\ProductBundle\Controller
  */

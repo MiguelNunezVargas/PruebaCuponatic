@@ -6,3 +6,6 @@ cnc_api:
     resource: "@CNCProductBundle/Resources/config/routes_rest.yml"
     type: rest
     prefix:   /api
+
+fos_oauth_server_token:
+    resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"

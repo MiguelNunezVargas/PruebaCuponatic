@@ -8,6 +8,6 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('CNCProductBundle:Product:index.html.twig');
+        return $this->render('CNCProductBundle:Default:index.html.twig');
     }
 }

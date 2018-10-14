@@ -102,3 +102,24 @@ fos_rest:
         json: true
     body_listener: true
     disable_csrf_role: ROLE_API
+
+nelmio_api_doc: ~
+
+fos_user:
+    db_driver: orm
+    firewall_name: api                                  # Seems to be used when registering user/reseting password,
+                                                        # but since there is no "login", as so it seems to be useless in
+                                                        # our particular context, but still required by "FOSUserBundle"
+    user_class: CNC\ProductBundle\Entity\User
+    from_email:
+        address: hioks@hioksmail.com
+        sender_name: Hioks
+
+fos_oauth_server:
+    db_driver:           orm
+    client_class:        CNC\ProductBundle\Entity\Client
+    access_token_class:  CNC\ProductBundle\Entity\AccessToken
+    refresh_token_class: CNC\ProductBundle\Entity\RefreshToken
+    auth_code_class:     CNC\ProductBundle\Entity\AuthCode
+    service:
+        user_provider: fos_user.user_provider.username             # This property will be used when valid credentials are given to load the user upon access token creation

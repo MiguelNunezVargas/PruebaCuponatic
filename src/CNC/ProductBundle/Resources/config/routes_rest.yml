@@ -3,3 +3,9 @@ cnc_api_products:
    type: rest
    name_prefix: api_productscript_
    prefix:   /productscript
+
+cnc_api_login:
+   resource: "@CNCProductBundle/Controller/LoginController.php"
+   type: rest
+   name_prefix: api_loginscript_
+   prefix:   /loginscript

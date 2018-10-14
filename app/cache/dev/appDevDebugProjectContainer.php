@@ -20,7 +20,7 @@ class appDevDebugProjectContainer extends Container
     public function __construct()
     {
         $dir = __DIR__;
-        for ($i = 1; $i <= 4; ++$i) {
+        for ($i = 1; $i <= 5; ++$i) {
             $this->targetDirs[$i] = $dir = dirname($dir);
         }
         $this->parameters = $this->getDefaultParameters();
@@ -69,7 +69,6 @@ class appDevDebugProjectContainer extends Container
             'doctrine.orm.default_entity_listener_resolver' => 'getDoctrine_Orm_DefaultEntityListenerResolverService',
             'doctrine.orm.default_entity_manager' => 'getDoctrine_Orm_DefaultEntityManagerService',
             'doctrine.orm.default_entity_manager.property_info_extractor' => 'getDoctrine_Orm_DefaultEntityManager_PropertyInfoExtractorService',
-            'doctrine.orm.default_listeners.attach_entity_listeners' => 'getDoctrine_Orm_DefaultListeners_AttachEntityListenersService',
             'doctrine.orm.default_manager_configurator' => 'getDoctrine_Orm_DefaultManagerConfiguratorService',
             'doctrine.orm.validator.unique' => 'getDoctrine_Orm_Validator_UniqueService',
             'doctrine.orm.validator_initializer' => 'getDoctrine_Orm_ValidatorInitializerService',
@@ -134,7 +133,21 @@ class appDevDebugProjectContainer extends Container
             'form.type_extension.upload.validator' => 'getForm_TypeExtension_Upload_ValidatorService',
             'form.type_guesser.doctrine' => 'getForm_TypeGuesser_DoctrineService',
             'form.type_guesser.validator' => 'getForm_TypeGuesser_ValidatorService',
+            'fos\\oauthserverbundle\\controller\\tokencontroller' => 'getFos_Oauthserverbundle_Controller_TokencontrollerService',
             'fos\\restbundle\\view\\viewhandlerinterface' => 'getFos_Restbundle_View_ViewhandlerinterfaceService',
+            'fos_oauth_server.access_token_manager.default' => 'getFosOauthServer_AccessTokenManager_DefaultService',
+            'fos_oauth_server.auth_code_manager.default' => 'getFosOauthServer_AuthCodeManager_DefaultService',
+            'fos_oauth_server.authorize.form' => 'getFosOauthServer_Authorize_FormService',
+            'fos_oauth_server.authorize.form.handler.default' => 'getFosOauthServer_Authorize_Form_Handler_DefaultService',
+            'fos_oauth_server.authorize.form.type' => 'getFosOauthServer_Authorize_Form_TypeService',
+            'fos_oauth_server.clean_command' => 'getFosOauthServer_CleanCommandService',
+            'fos_oauth_server.client_manager.default' => 'getFosOauthServer_ClientManager_DefaultService',
+            'fos_oauth_server.controller.authorize' => 'getFosOauthServer_Controller_AuthorizeService',
+            'fos_oauth_server.create_client_command' => 'getFosOauthServer_CreateClientCommandService',
+            'fos_oauth_server.entity_manager' => 'getFosOauthServer_EntityManagerService',
+            'fos_oauth_server.refresh_token_manager.default' => 'getFosOauthServer_RefreshTokenManager_DefaultService',
+            'fos_oauth_server.server' => 'getFosOauthServer_ServerService',
+            'fos_oauth_server.storage' => 'getFosOauthServer_StorageService',
             'fos_rest.access_denied_listener' => 'getFosRest_AccessDeniedListenerService',
             'fos_rest.allowed_methods_listener' => 'getFosRest_AllowedMethodsListenerService',
             'fos_rest.allowed_methods_loader' => 'getFosRest_AllowedMethodsLoaderService',
@@ -162,6 +175,38 @@ class appDevDebugProjectContainer extends Container
             'fos_rest.serializer.form_error_handler' => 'getFosRest_Serializer_FormErrorHandlerService',
             'fos_rest.serializer.jms_handler_registry.inner' => 'getFosRest_Serializer_JmsHandlerRegistry_InnerService',
             'fos_rest.view_response_listener' => 'getFosRest_ViewResponseListenerService',
+            'fos_user.change_password.controller' => 'getFosUser_ChangePassword_ControllerService',
+            'fos_user.change_password.form.factory' => 'getFosUser_ChangePassword_Form_FactoryService',
+            'fos_user.change_password.form.type' => 'getFosUser_ChangePassword_Form_TypeService',
+            'fos_user.command.activate_user' => 'getFosUser_Command_ActivateUserService',
+            'fos_user.command.change_password' => 'getFosUser_Command_ChangePasswordService',
+            'fos_user.command.create_user' => 'getFosUser_Command_CreateUserService',
+            'fos_user.command.deactivate_user' => 'getFosUser_Command_DeactivateUserService',
+            'fos_user.command.demote_user' => 'getFosUser_Command_DemoteUserService',
+            'fos_user.command.promote_user' => 'getFosUser_Command_PromoteUserService',
+            'fos_user.listener.authentication' => 'getFosUser_Listener_AuthenticationService',
+            'fos_user.listener.flash' => 'getFosUser_Listener_FlashService',
+            'fos_user.listener.resetting' => 'getFosUser_Listener_ResettingService',
+            'fos_user.mailer' => 'getFosUser_MailerService',
+            'fos_user.profile.controller' => 'getFosUser_Profile_ControllerService',
+            'fos_user.profile.form.factory' => 'getFosUser_Profile_Form_FactoryService',
+            'fos_user.profile.form.type' => 'getFosUser_Profile_Form_TypeService',
+            'fos_user.registration.controller' => 'getFosUser_Registration_ControllerService',
+            'fos_user.registration.form.factory' => 'getFosUser_Registration_Form_FactoryService',
+            'fos_user.registration.form.type' => 'getFosUser_Registration_Form_TypeService',
+            'fos_user.resetting.controller' => 'getFosUser_Resetting_ControllerService',
+            'fos_user.resetting.form.factory' => 'getFosUser_Resetting_Form_FactoryService',
+            'fos_user.resetting.form.type' => 'getFosUser_Resetting_Form_TypeService',
+            'fos_user.security.controller' => 'getFosUser_Security_ControllerService',
+            'fos_user.security.interactive_login_listener' => 'getFosUser_Security_InteractiveLoginListenerService',
+            'fos_user.security.login_manager' => 'getFosUser_Security_LoginManagerService',
+            'fos_user.user_manager' => 'getFosUser_UserManagerService',
+            'fos_user.username_form_type' => 'getFosUser_UsernameFormTypeService',
+            'fos_user.util.canonical_fields_updater' => 'getFosUser_Util_CanonicalFieldsUpdaterService',
+            'fos_user.util.email_canonicalizer' => 'getFosUser_Util_EmailCanonicalizerService',
+            'fos_user.util.password_updater' => 'getFosUser_Util_PasswordUpdaterService',
+            'fos_user.util.token_generator' => 'getFosUser_Util_TokenGeneratorService',
+            'fos_user.util.user_manipulator' => 'getFosUser_Util_UserManipulatorService',
             'fragment.handler' => 'getFragment_HandlerService',
             'fragment.listener' => 'getFragment_ListenerService',
             'fragment.renderer.hinclude' => 'getFragment_Renderer_HincludeService',
@@ -237,7 +282,8 @@ class appDevDebugProjectContainer extends Container
             'security.access.decision_manager' => 'getSecurity_Access_DecisionManagerService',
             'security.authentication.guard_handler' => 'getSecurity_Authentication_GuardHandlerService',
             'security.authentication.manager' => 'getSecurity_Authentication_ManagerService',
-            'security.authentication.session_strategy.main' => 'getSecurity_Authentication_SessionStrategy_MainService',
+            'security.authentication.session_strategy' => 'getSecurity_Authentication_SessionStrategyService',
+            'security.authentication.session_strategy.api' => 'getSecurity_Authentication_SessionStrategy_ApiService',
             'security.authentication.trust_resolver' => 'getSecurity_Authentication_TrustResolverService',
             'security.authentication_utils' => 'getSecurity_AuthenticationUtilsService',
             'security.authorization_checker' => 'getSecurity_AuthorizationCheckerService',
@@ -245,15 +291,16 @@ class appDevDebugProjectContainer extends Container
             'security.csrf.token_manager' => 'getSecurity_Csrf_TokenManagerService',
             'security.encoder_factory' => 'getSecurity_EncoderFactoryService',
             'security.firewall' => 'getSecurity_FirewallService',
+            'security.firewall.map.context.api' => 'getSecurity_Firewall_Map_Context_ApiService',
             'security.firewall.map.context.dev' => 'getSecurity_Firewall_Map_Context_DevService',
-            'security.firewall.map.context.main' => 'getSecurity_Firewall_Map_Context_MainService',
+            'security.firewall.map.context.oauth_token' => 'getSecurity_Firewall_Map_Context_OauthTokenService',
             'security.logout_url_generator' => 'getSecurity_LogoutUrlGeneratorService',
             'security.password_encoder' => 'getSecurity_PasswordEncoderService',
             'security.rememberme.response_listener' => 'getSecurity_Rememberme_ResponseListenerService',
             'security.role_hierarchy' => 'getSecurity_RoleHierarchyService',
             'security.secure_random' => 'getSecurity_SecureRandomService',
             'security.token_storage' => 'getSecurity_TokenStorageService',
-            'security.user_checker.main' => 'getSecurity_UserChecker_MainService',
+            'security.user_checker.api' => 'getSecurity_UserChecker_ApiService',
             'security.validator.user_password' => 'getSecurity_Validator_UserPasswordService',
             'sensio_distribution.security_checker' => 'getSensioDistribution_SecurityCheckerService',
             'sensio_distribution.security_checker.command' => 'getSensioDistribution_SecurityChecker_CommandService',
@@ -367,6 +414,14 @@ class appDevDebugProjectContainer extends Container
             'console.command.doctrine_bundle_doctrinecachebundle_command_deletecommand' => 'doctrine_cache.delete_command',
             'console.command.doctrine_bundle_doctrinecachebundle_command_flushcommand' => 'doctrine_cache.flush_command',
             'console.command.doctrine_bundle_doctrinecachebundle_command_statscommand' => 'doctrine_cache.stats_command',
+            'console.command.fos_oauthserverbundle_command_cleancommand' => 'fos_oauth_server.clean_command',
+            'console.command.fos_oauthserverbundle_command_createclientcommand' => 'fos_oauth_server.create_client_command',
+            'console.command.fos_userbundle_command_activateusercommand' => 'fos_user.command.activate_user',
+            'console.command.fos_userbundle_command_changepasswordcommand' => 'fos_user.command.change_password',
+            'console.command.fos_userbundle_command_createusercommand' => 'fos_user.command.create_user',
+            'console.command.fos_userbundle_command_deactivateusercommand' => 'fos_user.command.deactivate_user',
+            'console.command.fos_userbundle_command_demoteusercommand' => 'fos_user.command.demote_user',
+            'console.command.fos_userbundle_command_promoteusercommand' => 'fos_user.command.promote_user',
             'console.command.sensiolabs_security_command_securitycheckercommand' => 'sensio_distribution.security_checker.command',
             'database_connection' => 'doctrine.dbal.default_connection',
             'doctrine.orm.default_metadata_cache' => 'doctrine_cache.providers.doctrine.orm.default_metadata_cache',
@@ -374,11 +429,22 @@ class appDevDebugProjectContainer extends Container
             'doctrine.orm.default_result_cache' => 'doctrine_cache.providers.doctrine.orm.default_result_cache',
             'doctrine.orm.entity_manager' => 'doctrine.orm.default_entity_manager',
             'event_dispatcher' => 'debug.event_dispatcher',
+            'fos\\oauthserverbundle\\model\\accesstokenmanagerinterface' => 'fos_oauth_server.access_token_manager.default',
+            'fos\\oauthserverbundle\\model\\authcodemanagerinterface' => 'fos_oauth_server.auth_code_manager.default',
+            'fos\\oauthserverbundle\\model\\clientmanagerinterface' => 'fos_oauth_server.client_manager.default',
+            'fos\\oauthserverbundle\\model\\refreshtokenmanagerinterface' => 'fos_oauth_server.refresh_token_manager.default',
             'fos\\restbundle\\request\\paramfetcherinterface' => 'fos_rest.request.param_fetcher',
+            'fos_oauth_server.access_token_manager' => 'fos_oauth_server.access_token_manager.default',
+            'fos_oauth_server.auth_code_manager' => 'fos_oauth_server.auth_code_manager.default',
+            'fos_oauth_server.authorize.form.handler' => 'fos_oauth_server.authorize.form.handler.default',
+            'fos_oauth_server.client_manager' => 'fos_oauth_server.client_manager.default',
+            'fos_oauth_server.controller.token' => 'fos\\oauthserverbundle\\controller\\tokencontroller',
+            'fos_oauth_server.refresh_token_manager' => 'fos_oauth_server.refresh_token_manager.default',
             'fos_rest.router' => 'router',
             'fos_rest.serializer.jms_handler_registry' => 'jms_serializer.handler_registry',
             'fos_rest.templating' => 'templating',
             'fos_rest.view_handler' => 'fos\\restbundle\\view\\viewhandlerinterface',
+            'fos_user.util.username_canonicalizer' => 'fos_user.util.email_canonicalizer',
             'jms_serializer.form_error_handler' => 'fos_rest.serializer.form_error_handler',
             'mailer' => 'swiftmailer.mailer.default',
             'sensio.distribution.webconfigurator' => 'sensio_distribution.webconfigurator',
@@ -459,7 +525,7 @@ class appDevDebugProjectContainer extends Container
 
         $c = new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder($a, $b, ($this->targetDirs[2].'/Resources'));
 
-        return $this->services['cache_warmer'] = new \Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate(array(0 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplatePathsCacheWarmer($c, $this->get('templating.locator')), 1 => $this->get('kernel.class_cache.cache_warmer'), 2 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TranslationsCacheWarmer($this), 3 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\RouterCacheWarmer($this->get('router')), 4 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheCacheWarmer($this, $c, array(($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bridge\\Twig/Resources/views/Form') => NULL)), 5 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheWarmer($this, new \Symfony\Bundle\TwigBundle\TemplateIterator($a, $this->targetDirs[2], array(($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bridge\\Twig/Resources/views/Form') => NULL))), 6 => new \Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer($this->get('doctrine')), 7 => $this->get('fos_rest.allowed_methods_loader')));
+        return $this->services['cache_warmer'] = new \Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate(array(0 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplatePathsCacheWarmer($c, $this->get('templating.locator')), 1 => $this->get('kernel.class_cache.cache_warmer'), 2 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TranslationsCacheWarmer($this), 3 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\RouterCacheWarmer($this->get('router')), 4 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheCacheWarmer($this, $c, array(($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form') => NULL)), 5 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheWarmer($this, new \Symfony\Bundle\TwigBundle\TemplateIterator($a, $this->targetDirs[2], array(($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form') => NULL))), 6 => new \Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer($this->get('doctrine')), 7 => $this->get('fos_rest.allowed_methods_loader')));
     }
 
     /**
@@ -593,6 +659,10 @@ class appDevDebugProjectContainer extends Container
         $instance->addSubscriberService('fos_rest.exception_listener', 'FOS\\RestBundle\\EventListener\\ExceptionListener');
         $instance->addSubscriberService('fos_rest.view_response_listener', 'FOS\\RestBundle\\EventListener\\ViewResponseListener');
         $instance->addSubscriberService('fos_rest.access_denied_listener', 'FOS\\RestBundle\\EventListener\\AccessDeniedListener');
+        $instance->addSubscriberService('fos_user.security.interactive_login_listener', 'FOS\\UserBundle\\EventListener\\LastLoginListener');
+        $instance->addSubscriberService('fos_user.listener.authentication', 'FOS\\UserBundle\\EventListener\\AuthenticationListener');
+        $instance->addSubscriberService('fos_user.listener.flash', 'FOS\\UserBundle\\EventListener\\FlashListener');
+        $instance->addSubscriberService('fos_user.listener.resetting', 'FOS\\UserBundle\\EventListener\\ResettingListener');
         $instance->addSubscriberService('debug.dump_listener', 'Symfony\\Component\\HttpKernel\\EventListener\\DumpListener');
         $instance->addSubscriberService('web_profiler.debug_toolbar', 'Symfony\\Bundle\\WebProfilerBundle\\EventListener\\WebDebugToolbarListener');
 
@@ -734,9 +804,9 @@ class appDevDebugProjectContainer extends Container
         $b->setSQLLogger($a);
 
         $c = new \Symfony\Bridge\Doctrine\ContainerAwareEventManager($this);
-        $c->addEventListener(array(0 => 'loadClassMetadata'), $this->get('doctrine.orm.default_listeners.attach_entity_listeners'));
+        $c->addEventSubscriber(new \FOS\UserBundle\Doctrine\UserListener($this->get('fos_user.util.password_updater'), $this->get('fos_user.util.canonical_fields_updater')));
 
-        return $this->services['doctrine.dbal.default_connection'] = $this->get('doctrine.dbal.connection_factory')->createConnection(array('driver' => 'pdo_mysql', 'host' => '127.0.0.1', 'port' => 3306, 'dbname' => 'cuponatic', 'user' => 'root', 'password' => NULL, 'charset' => 'UTF8', 'driverOptions' => array(), 'defaultTableOptions' => array()), $b, $c, array());
+        return $this->services['doctrine.dbal.default_connection'] = $this->get('doctrine.dbal.connection_factory')->createConnection(array('driver' => 'pdo_mysql', 'host' => '127.0.0.1', 'port' => 3306, 'dbname' => 'cuponatic', 'user' => 'hioks', 'password' => 'root', 'charset' => 'UTF8', 'driverOptions' => array(), 'defaultTableOptions' => array()), $b, $c, array());
     }
 
     /**
@@ -806,26 +876,31 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getDoctrine_Orm_DefaultEntityManagerService($lazyLoad = true)
     {
-        $a = new \Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain();
-        $a->addDriver(new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($this->get('annotation_reader'), array(0 => ($this->targetDirs[3].'\\src\\CNC\\ProductBundle\\Entity'))), 'CNC\\ProductBundle\\Entity');
+        $a = new \Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver(array(($this->targetDirs[3].'/vendor/friendsofsymfony/oauth-server-bundle/Resources/config/doctrine') => 'FOS\\OAuthServerBundle\\Entity'));
+        $a->setGlobalBasename('mapping');
 
-        $b = new \Doctrine\ORM\Configuration();
-        $b->setEntityNamespaces(array('CNCProductBundle' => 'CNC\\ProductBundle\\Entity'));
-        $b->setMetadataCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_metadata_cache'));
-        $b->setQueryCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_query_cache'));
-        $b->setResultCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_result_cache'));
-        $b->setMetadataDriverImpl($a);
-        $b->setProxyDir((__DIR__.'/doctrine/orm/Proxies'));
-        $b->setProxyNamespace('Proxies');
-        $b->setAutoGenerateProxyClasses(true);
-        $b->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
-        $b->setDefaultRepositoryClassName('Doctrine\\ORM\\EntityRepository');
-        $b->setNamingStrategy(new \Doctrine\ORM\Mapping\UnderscoreNamingStrategy());
-        $b->setQuoteStrategy(new \Doctrine\ORM\Mapping\DefaultQuoteStrategy());
-        $b->setEntityListenerResolver($this->get('doctrine.orm.default_entity_listener_resolver'));
-        $b->setRepositoryFactory(new \Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory(NULL));
+        $b = new \Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain();
+        $b->addDriver($a, 'FOS\\OAuthServerBundle\\Entity');
+        $b->addDriver(new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($this->get('annotation_reader'), array(0 => ($this->targetDirs[3].'/src/CNC/ProductBundle/Entity'))), 'CNC\\ProductBundle\\Entity');
+        $b->addDriver(new \Doctrine\ORM\Mapping\Driver\XmlDriver(new \Doctrine\Common\Persistence\Mapping\Driver\SymfonyFileLocator(array(($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/config/doctrine-mapping') => 'FOS\\UserBundle\\Model'), '.orm.xml')), 'FOS\\UserBundle\\Model');
 
-        $this->services['doctrine.orm.default_entity_manager'] = $instance = \Doctrine\ORM\EntityManager::create($this->get('doctrine.dbal.default_connection'), $b);
+        $c = new \Doctrine\ORM\Configuration();
+        $c->setEntityNamespaces(array('FOSOAuthServerBundle' => 'FOS\\OAuthServerBundle\\Entity', 'CNCProductBundle' => 'CNC\\ProductBundle\\Entity'));
+        $c->setMetadataCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_metadata_cache'));
+        $c->setQueryCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_query_cache'));
+        $c->setResultCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_result_cache'));
+        $c->setMetadataDriverImpl($b);
+        $c->setProxyDir((__DIR__.'/doctrine/orm/Proxies'));
+        $c->setProxyNamespace('Proxies');
+        $c->setAutoGenerateProxyClasses(true);
+        $c->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
+        $c->setDefaultRepositoryClassName('Doctrine\\ORM\\EntityRepository');
+        $c->setNamingStrategy(new \Doctrine\ORM\Mapping\UnderscoreNamingStrategy());
+        $c->setQuoteStrategy(new \Doctrine\ORM\Mapping\DefaultQuoteStrategy());
+        $c->setEntityListenerResolver($this->get('doctrine.orm.default_entity_listener_resolver'));
+        $c->setRepositoryFactory(new \Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory(NULL));
+
+        $this->services['doctrine.orm.default_entity_manager'] = $instance = \Doctrine\ORM\EntityManager::create($this->get('doctrine.dbal.default_connection'), $c);
 
         $this->get('doctrine.orm.default_manager_configurator')->configure($instance);
 
@@ -840,16 +915,6 @@ class appDevDebugProjectContainer extends Container
     protected function getDoctrine_Orm_DefaultEntityManager_PropertyInfoExtractorService()
     {
         return $this->services['doctrine.orm.default_entity_manager.property_info_extractor'] = new \Symfony\Bridge\Doctrine\PropertyInfo\DoctrineExtractor($this->get('doctrine.orm.default_entity_manager')->getMetadataFactory());
-    }
-
-    /**
-     * Gets the public 'doctrine.orm.default_listeners.attach_entity_listeners' shared service.
-     *
-     * @return \Doctrine\ORM\Tools\AttachEntityListenersListener
-     */
-    protected function getDoctrine_Orm_DefaultListeners_AttachEntityListenersService()
-    {
-        return $this->services['doctrine.orm.default_listeners.attach_entity_listeners'] = new \Doctrine\ORM\Tools\AttachEntityListenersListener();
     }
 
     /**
@@ -981,7 +1046,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.default_metadata_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf_orm_default_22a3ade730d01e95f626843ddb8236a4145860d8c51dfa001d43016f2bbfba6d');
+        $instance->setNamespace('sf_orm_default_8fea7debd43599dcacd0cfc84ce307c45a6178dae7143fdaeac5f21aa44d581f');
 
         return $instance;
     }
@@ -995,7 +1060,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.default_query_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf_orm_default_22a3ade730d01e95f626843ddb8236a4145860d8c51dfa001d43016f2bbfba6d');
+        $instance->setNamespace('sf_orm_default_8fea7debd43599dcacd0cfc84ce307c45a6178dae7143fdaeac5f21aa44d581f');
 
         return $instance;
     }
@@ -1009,7 +1074,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.default_result_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf_orm_default_22a3ade730d01e95f626843ddb8236a4145860d8c51dfa001d43016f2bbfba6d');
+        $instance->setNamespace('sf_orm_default_8fea7debd43599dcacd0cfc84ce307c45a6178dae7143fdaeac5f21aa44d581f');
 
         return $instance;
     }
@@ -1075,7 +1140,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getForm_RegistryService()
     {
-        return $this->services['form.registry'] = new \Symfony\Component\Form\FormRegistry(array(0 => new \Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension($this, array('form' => 'form.type.form', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\FormType' => 'form.type.form', 'birthday' => 'form.type.birthday', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\BirthdayType' => 'form.type.birthday', 'checkbox' => 'form.type.checkbox', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CheckboxType' => 'form.type.checkbox', 'choice' => 'form.type.choice', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType' => 'form.type.choice', 'collection' => 'form.type.collection', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CollectionType' => 'form.type.collection', 'country' => 'form.type.country', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CountryType' => 'form.type.country', 'date' => 'form.type.date', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\DateType' => 'form.type.date', 'datetime' => 'form.type.datetime', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\DateTimeType' => 'form.type.datetime', 'email' => 'form.type.email', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\EmailType' => 'form.type.email', 'file' => 'form.type.file', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\FileType' => 'form.type.file', 'hidden' => 'form.type.hidden', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\HiddenType' => 'form.type.hidden', 'integer' => 'form.type.integer', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\IntegerType' => 'form.type.integer', 'language' => 'form.type.language', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\LanguageType' => 'form.type.language', 'locale' => 'form.type.locale', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\LocaleType' => 'form.type.locale', 'money' => 'form.type.money', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\MoneyType' => 'form.type.money', 'number' => 'form.type.number', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\NumberType' => 'form.type.number', 'password' => 'form.type.password', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\PasswordType' => 'form.type.password', 'percent' => 'form.type.percent', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\PercentType' => 'form.type.percent', 'radio' => 'form.type.radio', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\RadioType' => 'form.type.radio', 'range' => 'form.type.range', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\RangeType' => 'form.type.range', 'repeated' => 'form.type.repeated', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\RepeatedType' => 'form.type.repeated', 'search' => 'form.type.search', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\SearchType' => 'form.type.search', 'textarea' => 'form.type.textarea', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TextareaType' => 'form.type.textarea', 'text' => 'form.type.text', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType' => 'form.type.text', 'time' => 'form.type.time', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TimeType' => 'form.type.time', 'timezone' => 'form.type.timezone', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TimezoneType' => 'form.type.timezone', 'url' => 'form.type.url', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\UrlType' => 'form.type.url', 'button' => 'form.type.button', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ButtonType' => 'form.type.button', 'submit' => 'form.type.submit', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\SubmitType' => 'form.type.submit', 'reset' => 'form.type.reset', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ResetType' => 'form.type.reset', 'currency' => 'form.type.currency', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CurrencyType' => 'form.type.currency', 'entity' => 'form.type.entity', 'Symfony\\Bridge\\Doctrine\\Form\\Type\\EntityType' => 'form.type.entity'), array('Symfony\\Component\\Form\\Extension\\Core\\Type\\FormType' => array(0 => 'form.type_extension.form.http_foundation', 1 => 'form.type_extension.form.validator', 2 => 'form.type_extension.upload.validator', 3 => 'form.type_extension.csrf', 4 => 'form.type_extension.form.data_collector', 5 => 'fos_rest.form.extension.csrf_disable', 6 => 'nelmio_api_doc.form.extension.description_form_type_extension'), 'Symfony\\Component\\Form\\Extension\\Core\\Type\\RepeatedType' => array(0 => 'form.type_extension.repeated.validator'), 'Symfony\\Component\\Form\\Extension\\Core\\Type\\SubmitType' => array(0 => 'form.type_extension.submit.validator')), array(0 => 'form.type_guesser.validator', 1 => 'form.type_guesser.doctrine'))), $this->get('form.resolved_type_factory'));
+        return $this->services['form.registry'] = new \Symfony\Component\Form\FormRegistry(array(0 => new \Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension($this, array('form' => 'form.type.form', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\FormType' => 'form.type.form', 'birthday' => 'form.type.birthday', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\BirthdayType' => 'form.type.birthday', 'checkbox' => 'form.type.checkbox', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CheckboxType' => 'form.type.checkbox', 'choice' => 'form.type.choice', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType' => 'form.type.choice', 'collection' => 'form.type.collection', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CollectionType' => 'form.type.collection', 'country' => 'form.type.country', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CountryType' => 'form.type.country', 'date' => 'form.type.date', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\DateType' => 'form.type.date', 'datetime' => 'form.type.datetime', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\DateTimeType' => 'form.type.datetime', 'email' => 'form.type.email', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\EmailType' => 'form.type.email', 'file' => 'form.type.file', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\FileType' => 'form.type.file', 'hidden' => 'form.type.hidden', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\HiddenType' => 'form.type.hidden', 'integer' => 'form.type.integer', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\IntegerType' => 'form.type.integer', 'language' => 'form.type.language', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\LanguageType' => 'form.type.language', 'locale' => 'form.type.locale', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\LocaleType' => 'form.type.locale', 'money' => 'form.type.money', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\MoneyType' => 'form.type.money', 'number' => 'form.type.number', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\NumberType' => 'form.type.number', 'password' => 'form.type.password', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\PasswordType' => 'form.type.password', 'percent' => 'form.type.percent', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\PercentType' => 'form.type.percent', 'radio' => 'form.type.radio', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\RadioType' => 'form.type.radio', 'range' => 'form.type.range', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\RangeType' => 'form.type.range', 'repeated' => 'form.type.repeated', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\RepeatedType' => 'form.type.repeated', 'search' => 'form.type.search', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\SearchType' => 'form.type.search', 'textarea' => 'form.type.textarea', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TextareaType' => 'form.type.textarea', 'text' => 'form.type.text', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType' => 'form.type.text', 'time' => 'form.type.time', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TimeType' => 'form.type.time', 'timezone' => 'form.type.timezone', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TimezoneType' => 'form.type.timezone', 'url' => 'form.type.url', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\UrlType' => 'form.type.url', 'button' => 'form.type.button', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ButtonType' => 'form.type.button', 'submit' => 'form.type.submit', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\SubmitType' => 'form.type.submit', 'reset' => 'form.type.reset', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ResetType' => 'form.type.reset', 'currency' => 'form.type.currency', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CurrencyType' => 'form.type.currency', 'entity' => 'form.type.entity', 'Symfony\\Bridge\\Doctrine\\Form\\Type\\EntityType' => 'form.type.entity', 'fos_user_username' => 'fos_user.username_form_type', 'FOS\\UserBundle\\Form\\Type\\UsernameFormType' => 'fos_user.username_form_type', 'fos_user_profile' => 'fos_user.profile.form.type', 'FOS\\UserBundle\\Form\\Type\\ProfileFormType' => 'fos_user.profile.form.type', 'fos_user_registration' => 'fos_user.registration.form.type', 'FOS\\UserBundle\\Form\\Type\\RegistrationFormType' => 'fos_user.registration.form.type', 'fos_user_change_password' => 'fos_user.change_password.form.type', 'FOS\\UserBundle\\Form\\Type\\ChangePasswordFormType' => 'fos_user.change_password.form.type', 'fos_user_resetting' => 'fos_user.resetting.form.type', 'FOS\\UserBundle\\Form\\Type\\ResettingFormType' => 'fos_user.resetting.form.type', 'fos_oauth_server_authorize' => 'fos_oauth_server.authorize.form.type', 'FOS\\OAuthServerBundle\\Form\\Type\\AuthorizeFormType' => 'fos_oauth_server.authorize.form.type'), array('Symfony\\Component\\Form\\Extension\\Core\\Type\\FormType' => array(0 => 'form.type_extension.form.http_foundation', 1 => 'form.type_extension.form.validator', 2 => 'form.type_extension.upload.validator', 3 => 'form.type_extension.csrf', 4 => 'form.type_extension.form.data_collector', 5 => 'fos_rest.form.extension.csrf_disable', 6 => 'nelmio_api_doc.form.extension.description_form_type_extension'), 'Symfony\\Component\\Form\\Extension\\Core\\Type\\RepeatedType' => array(0 => 'form.type_extension.repeated.validator'), 'Symfony\\Component\\Form\\Extension\\Core\\Type\\SubmitType' => array(0 => 'form.type_extension.submit.validator')), array(0 => 'form.type_guesser.validator', 1 => 'form.type_guesser.doctrine'))), $this->get('form.resolved_type_factory'));
     }
 
     /**
@@ -1499,6 +1564,16 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the public 'fos\oauthserverbundle\controller\tokencontroller' shared service.
+     *
+     * @return \FOS\OAuthServerBundle\Controller\TokenController
+     */
+    protected function getFos_Oauthserverbundle_Controller_TokencontrollerService()
+    {
+        return $this->services['fos\oauthserverbundle\controller\tokencontroller'] = new \FOS\OAuthServerBundle\Controller\TokenController($this->get('fos_oauth_server.server'));
+    }
+
+    /**
      * Gets the public 'fos\restbundle\view\viewhandlerinterface' shared service.
      *
      * @return \FOS\RestBundle\View\ViewHandler
@@ -1510,6 +1585,126 @@ class appDevDebugProjectContainer extends Container
         $instance->setSerializeNullStrategy(false);
 
         return $instance;
+    }
+
+    /**
+     * Gets the public 'fos_oauth_server.access_token_manager.default' shared service.
+     *
+     * @return \FOS\OAuthServerBundle\Entity\AccessTokenManager
+     */
+    protected function getFosOauthServer_AccessTokenManager_DefaultService()
+    {
+        return $this->services['fos_oauth_server.access_token_manager.default'] = new \FOS\OAuthServerBundle\Entity\AccessTokenManager($this->get('fos_oauth_server.entity_manager'), 'CNC\\ProductBundle\\Entity\\AccessToken');
+    }
+
+    /**
+     * Gets the public 'fos_oauth_server.auth_code_manager.default' shared service.
+     *
+     * @return \FOS\OAuthServerBundle\Entity\AuthCodeManager
+     */
+    protected function getFosOauthServer_AuthCodeManager_DefaultService()
+    {
+        return $this->services['fos_oauth_server.auth_code_manager.default'] = new \FOS\OAuthServerBundle\Entity\AuthCodeManager($this->get('fos_oauth_server.entity_manager'), 'CNC\\ProductBundle\\Entity\\AuthCode');
+    }
+
+    /**
+     * Gets the public 'fos_oauth_server.authorize.form' shared service.
+     *
+     * @return \Symfony\Component\Form\Form
+     */
+    protected function getFosOauthServer_Authorize_FormService()
+    {
+        return $this->services['fos_oauth_server.authorize.form'] = $this->get('form.factory')->createNamed('fos_oauth_server_authorize_form', 'FOS\\OAuthServerBundle\\Form\\Type\\AuthorizeFormType', NULL, array('validation_groups' => array(0 => 'Authorize', 1 => 'Default')));
+    }
+
+    /**
+     * Gets the public 'fos_oauth_server.authorize.form.handler.default' shared service.
+     *
+     * @return \FOS\OAuthServerBundle\Form\Handler\AuthorizeFormHandler
+     */
+    protected function getFosOauthServer_Authorize_Form_Handler_DefaultService()
+    {
+        return $this->services['fos_oauth_server.authorize.form.handler.default'] = new \FOS\OAuthServerBundle\Form\Handler\AuthorizeFormHandler($this->get('fos_oauth_server.authorize.form'), $this->get('request_stack'));
+    }
+
+    /**
+     * Gets the public 'fos_oauth_server.authorize.form.type' shared service.
+     *
+     * @return \FOS\OAuthServerBundle\Form\Type\AuthorizeFormType
+     */
+    protected function getFosOauthServer_Authorize_Form_TypeService()
+    {
+        return $this->services['fos_oauth_server.authorize.form.type'] = new \FOS\OAuthServerBundle\Form\Type\AuthorizeFormType();
+    }
+
+    /**
+     * Gets the public 'fos_oauth_server.clean_command' shared service.
+     *
+     * @return \FOS\OAuthServerBundle\Command\CleanCommand
+     */
+    protected function getFosOauthServer_CleanCommandService()
+    {
+        return $this->services['fos_oauth_server.clean_command'] = new \FOS\OAuthServerBundle\Command\CleanCommand($this->get('fos_oauth_server.access_token_manager.default'), $this->get('fos_oauth_server.refresh_token_manager.default'), $this->get('fos_oauth_server.auth_code_manager.default'));
+    }
+
+    /**
+     * Gets the public 'fos_oauth_server.client_manager.default' shared service.
+     *
+     * @return \FOS\OAuthServerBundle\Entity\ClientManager
+     */
+    protected function getFosOauthServer_ClientManager_DefaultService()
+    {
+        return $this->services['fos_oauth_server.client_manager.default'] = new \FOS\OAuthServerBundle\Entity\ClientManager($this->get('fos_oauth_server.entity_manager'), 'CNC\\ProductBundle\\Entity\\Client');
+    }
+
+    /**
+     * Gets the public 'fos_oauth_server.controller.authorize' shared service.
+     *
+     * @return \FOS\OAuthServerBundle\Controller\AuthorizeController
+     */
+    protected function getFosOauthServer_Controller_AuthorizeService()
+    {
+        return $this->services['fos_oauth_server.controller.authorize'] = new \FOS\OAuthServerBundle\Controller\AuthorizeController($this->get('request_stack'), $this->get('fos_oauth_server.authorize.form'), $this->get('fos_oauth_server.authorize.form.handler.default'), $this->get('fos_oauth_server.server'), $this->get('templating'), $this->get('security.token_storage'), $this->get('router'), $this->get('fos_oauth_server.client_manager.default'), $this->get('debug.event_dispatcher'), $this->get('session', ContainerInterface::NULL_ON_INVALID_REFERENCE), 'twig');
+    }
+
+    /**
+     * Gets the public 'fos_oauth_server.create_client_command' shared service.
+     *
+     * @return \FOS\OAuthServerBundle\Command\CreateClientCommand
+     */
+    protected function getFosOauthServer_CreateClientCommandService()
+    {
+        return $this->services['fos_oauth_server.create_client_command'] = new \FOS\OAuthServerBundle\Command\CreateClientCommand($this->get('fos_oauth_server.client_manager.default'));
+    }
+
+    /**
+     * Gets the public 'fos_oauth_server.refresh_token_manager.default' shared service.
+     *
+     * @return \FOS\OAuthServerBundle\Entity\RefreshTokenManager
+     */
+    protected function getFosOauthServer_RefreshTokenManager_DefaultService()
+    {
+        return $this->services['fos_oauth_server.refresh_token_manager.default'] = new \FOS\OAuthServerBundle\Entity\RefreshTokenManager($this->get('fos_oauth_server.entity_manager'), 'CNC\\ProductBundle\\Entity\\RefreshToken');
+    }
+
+    /**
+     * Gets the public 'fos_oauth_server.server' shared service.
+     *
+     * @return \OAuth2\OAuth2
+     */
+    protected function getFosOauthServer_ServerService()
+    {
+        return $this->services['fos_oauth_server.server'] = new \OAuth2\OAuth2($this->get('fos_oauth_server.storage'), array());
+    }
+
+    /**
+     * Gets the public 'fos_oauth_server.storage' shared service.
+     *
+     * @return \FOS\OAuthServerBundle\Storage\OAuthStorage
+     */
+    protected function getFosOauthServer_StorageService()
+    {
+        return $this->services['fos_oauth_server.storage'] = new \FOS\OAuthServerBundle\Storage\OAuthStorage($this->get('fos_oauth_server.client_manager.default'), $this->get('fos_oauth_server.access_token_manager.default'), $this->get('fos_oauth_server.refresh_token_manager.default'), $this->get('fos_oauth_server.auth_code_manager.default'), new \FOS\UserBundle\Security\UserProvider($this->get('fos_user.user_manager')), $this->get('security.encoder_factory'));
     }
 
     /**
@@ -1743,6 +1938,326 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the public 'fos_user.change_password.controller' shared service.
+     *
+     * @return \FOS\UserBundle\Controller\ChangePasswordController
+     */
+    protected function getFosUser_ChangePassword_ControllerService()
+    {
+        $this->services['fos_user.change_password.controller'] = $instance = new \FOS\UserBundle\Controller\ChangePasswordController($this->get('debug.event_dispatcher'), $this->get('fos_user.change_password.form.factory'), $this->get('fos_user.user_manager'));
+
+        $instance->setContainer($this);
+
+        return $instance;
+    }
+
+    /**
+     * Gets the public 'fos_user.change_password.form.factory' shared service.
+     *
+     * @return \FOS\UserBundle\Form\Factory\FormFactory
+     */
+    protected function getFosUser_ChangePassword_Form_FactoryService()
+    {
+        return $this->services['fos_user.change_password.form.factory'] = new \FOS\UserBundle\Form\Factory\FormFactory($this->get('form.factory'), 'fos_user_change_password_form', 'FOS\\UserBundle\\Form\\Type\\ChangePasswordFormType', array(0 => 'ChangePassword', 1 => 'Default'));
+    }
+
+    /**
+     * Gets the public 'fos_user.change_password.form.type' shared service.
+     *
+     * @return \FOS\UserBundle\Form\Type\ChangePasswordFormType
+     */
+    protected function getFosUser_ChangePassword_Form_TypeService()
+    {
+        return $this->services['fos_user.change_password.form.type'] = new \FOS\UserBundle\Form\Type\ChangePasswordFormType('CNC\\ProductBundle\\Entity\\User');
+    }
+
+    /**
+     * Gets the public 'fos_user.command.activate_user' shared service.
+     *
+     * @return \FOS\UserBundle\Command\ActivateUserCommand
+     */
+    protected function getFosUser_Command_ActivateUserService()
+    {
+        return $this->services['fos_user.command.activate_user'] = new \FOS\UserBundle\Command\ActivateUserCommand($this->get('fos_user.util.user_manipulator'));
+    }
+
+    /**
+     * Gets the public 'fos_user.command.change_password' shared service.
+     *
+     * @return \FOS\UserBundle\Command\ChangePasswordCommand
+     */
+    protected function getFosUser_Command_ChangePasswordService()
+    {
+        return $this->services['fos_user.command.change_password'] = new \FOS\UserBundle\Command\ChangePasswordCommand($this->get('fos_user.util.user_manipulator'));
+    }
+
+    /**
+     * Gets the public 'fos_user.command.create_user' shared service.
+     *
+     * @return \FOS\UserBundle\Command\CreateUserCommand
+     */
+    protected function getFosUser_Command_CreateUserService()
+    {
+        return $this->services['fos_user.command.create_user'] = new \FOS\UserBundle\Command\CreateUserCommand($this->get('fos_user.util.user_manipulator'));
+    }
+
+    /**
+     * Gets the public 'fos_user.command.deactivate_user' shared service.
+     *
+     * @return \FOS\UserBundle\Command\DeactivateUserCommand
+     */
+    protected function getFosUser_Command_DeactivateUserService()
+    {
+        return $this->services['fos_user.command.deactivate_user'] = new \FOS\UserBundle\Command\DeactivateUserCommand($this->get('fos_user.util.user_manipulator'));
+    }
+
+    /**
+     * Gets the public 'fos_user.command.demote_user' shared service.
+     *
+     * @return \FOS\UserBundle\Command\DemoteUserCommand
+     */
+    protected function getFosUser_Command_DemoteUserService()
+    {
+        return $this->services['fos_user.command.demote_user'] = new \FOS\UserBundle\Command\DemoteUserCommand($this->get('fos_user.util.user_manipulator'));
+    }
+
+    /**
+     * Gets the public 'fos_user.command.promote_user' shared service.
+     *
+     * @return \FOS\UserBundle\Command\PromoteUserCommand
+     */
+    protected function getFosUser_Command_PromoteUserService()
+    {
+        return $this->services['fos_user.command.promote_user'] = new \FOS\UserBundle\Command\PromoteUserCommand($this->get('fos_user.util.user_manipulator'));
+    }
+
+    /**
+     * Gets the public 'fos_user.listener.authentication' shared service.
+     *
+     * @return \FOS\UserBundle\EventListener\AuthenticationListener
+     */
+    protected function getFosUser_Listener_AuthenticationService()
+    {
+        return $this->services['fos_user.listener.authentication'] = new \FOS\UserBundle\EventListener\AuthenticationListener($this->get('fos_user.security.login_manager'), 'api');
+    }
+
+    /**
+     * Gets the public 'fos_user.listener.flash' shared service.
+     *
+     * @return \FOS\UserBundle\EventListener\FlashListener
+     */
+    protected function getFosUser_Listener_FlashService()
+    {
+        return $this->services['fos_user.listener.flash'] = new \FOS\UserBundle\EventListener\FlashListener($this->get('session'), $this->get('translator'));
+    }
+
+    /**
+     * Gets the public 'fos_user.listener.resetting' shared service.
+     *
+     * @return \FOS\UserBundle\EventListener\ResettingListener
+     */
+    protected function getFosUser_Listener_ResettingService()
+    {
+        return $this->services['fos_user.listener.resetting'] = new \FOS\UserBundle\EventListener\ResettingListener($this->get('router'), 86400);
+    }
+
+    /**
+     * Gets the public 'fos_user.mailer' shared service.
+     *
+     * @return \FOS\UserBundle\Mailer\Mailer
+     */
+    protected function getFosUser_MailerService()
+    {
+        return $this->services['fos_user.mailer'] = new \FOS\UserBundle\Mailer\Mailer($this->get('swiftmailer.mailer.default'), $this->get('router'), $this->get('templating'), array('confirmation.template' => '@FOSUser/Registration/email.txt.twig', 'resetting.template' => '@FOSUser/Resetting/email.txt.twig', 'from_email' => array('confirmation' => array('hioks@hioksmail.com' => 'Hioks'), 'resetting' => array('hioks@hioksmail.com' => 'Hioks'))));
+    }
+
+    /**
+     * Gets the public 'fos_user.profile.controller' shared service.
+     *
+     * @return \FOS\UserBundle\Controller\ProfileController
+     */
+    protected function getFosUser_Profile_ControllerService()
+    {
+        $this->services['fos_user.profile.controller'] = $instance = new \FOS\UserBundle\Controller\ProfileController($this->get('debug.event_dispatcher'), $this->get('fos_user.profile.form.factory'), $this->get('fos_user.user_manager'));
+
+        $instance->setContainer($this);
+
+        return $instance;
+    }
+
+    /**
+     * Gets the public 'fos_user.profile.form.factory' shared service.
+     *
+     * @return \FOS\UserBundle\Form\Factory\FormFactory
+     */
+    protected function getFosUser_Profile_Form_FactoryService()
+    {
+        return $this->services['fos_user.profile.form.factory'] = new \FOS\UserBundle\Form\Factory\FormFactory($this->get('form.factory'), 'fos_user_profile_form', 'FOS\\UserBundle\\Form\\Type\\ProfileFormType', array(0 => 'Profile', 1 => 'Default'));
+    }
+
+    /**
+     * Gets the public 'fos_user.profile.form.type' shared service.
+     *
+     * @return \FOS\UserBundle\Form\Type\ProfileFormType
+     */
+    protected function getFosUser_Profile_Form_TypeService()
+    {
+        return $this->services['fos_user.profile.form.type'] = new \FOS\UserBundle\Form\Type\ProfileFormType('CNC\\ProductBundle\\Entity\\User');
+    }
+
+    /**
+     * Gets the public 'fos_user.registration.controller' shared service.
+     *
+     * @return \FOS\UserBundle\Controller\RegistrationController
+     */
+    protected function getFosUser_Registration_ControllerService()
+    {
+        $this->services['fos_user.registration.controller'] = $instance = new \FOS\UserBundle\Controller\RegistrationController($this->get('debug.event_dispatcher'), $this->get('fos_user.registration.form.factory'), $this->get('fos_user.user_manager'), $this->get('security.token_storage'));
+
+        $instance->setContainer($this);
+
+        return $instance;
+    }
+
+    /**
+     * Gets the public 'fos_user.registration.form.factory' shared service.
+     *
+     * @return \FOS\UserBundle\Form\Factory\FormFactory
+     */
+    protected function getFosUser_Registration_Form_FactoryService()
+    {
+        return $this->services['fos_user.registration.form.factory'] = new \FOS\UserBundle\Form\Factory\FormFactory($this->get('form.factory'), 'fos_user_registration_form', 'FOS\\UserBundle\\Form\\Type\\RegistrationFormType', array(0 => 'Registration', 1 => 'Default'));
+    }
+
+    /**
+     * Gets the public 'fos_user.registration.form.type' shared service.
+     *
+     * @return \FOS\UserBundle\Form\Type\RegistrationFormType
+     */
+    protected function getFosUser_Registration_Form_TypeService()
+    {
+        return $this->services['fos_user.registration.form.type'] = new \FOS\UserBundle\Form\Type\RegistrationFormType('CNC\\ProductBundle\\Entity\\User');
+    }
+
+    /**
+     * Gets the public 'fos_user.resetting.controller' shared service.
+     *
+     * @return \FOS\UserBundle\Controller\ResettingController
+     */
+    protected function getFosUser_Resetting_ControllerService()
+    {
+        $this->services['fos_user.resetting.controller'] = $instance = new \FOS\UserBundle\Controller\ResettingController($this->get('debug.event_dispatcher'), $this->get('fos_user.resetting.form.factory'), $this->get('fos_user.user_manager'), $this->get('fos_user.util.token_generator'), $this->get('fos_user.mailer'), 7200);
+
+        $instance->setContainer($this);
+
+        return $instance;
+    }
+
+    /**
+     * Gets the public 'fos_user.resetting.form.factory' shared service.
+     *
+     * @return \FOS\UserBundle\Form\Factory\FormFactory
+     */
+    protected function getFosUser_Resetting_Form_FactoryService()
+    {
+        return $this->services['fos_user.resetting.form.factory'] = new \FOS\UserBundle\Form\Factory\FormFactory($this->get('form.factory'), 'fos_user_resetting_form', 'FOS\\UserBundle\\Form\\Type\\ResettingFormType', array(0 => 'ResetPassword', 1 => 'Default'));
+    }
+
+    /**
+     * Gets the public 'fos_user.resetting.form.type' shared service.
+     *
+     * @return \FOS\UserBundle\Form\Type\ResettingFormType
+     */
+    protected function getFosUser_Resetting_Form_TypeService()
+    {
+        return $this->services['fos_user.resetting.form.type'] = new \FOS\UserBundle\Form\Type\ResettingFormType('CNC\\ProductBundle\\Entity\\User');
+    }
+
+    /**
+     * Gets the public 'fos_user.security.controller' shared service.
+     *
+     * @return \FOS\UserBundle\Controller\SecurityController
+     */
+    protected function getFosUser_Security_ControllerService()
+    {
+        $this->services['fos_user.security.controller'] = $instance = new \FOS\UserBundle\Controller\SecurityController($this->get('security.csrf.token_manager', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+
+        $instance->setContainer($this);
+
+        return $instance;
+    }
+
+    /**
+     * Gets the public 'fos_user.security.interactive_login_listener' shared service.
+     *
+     * @return \FOS\UserBundle\EventListener\LastLoginListener
+     */
+    protected function getFosUser_Security_InteractiveLoginListenerService()
+    {
+        return $this->services['fos_user.security.interactive_login_listener'] = new \FOS\UserBundle\EventListener\LastLoginListener($this->get('fos_user.user_manager'));
+    }
+
+    /**
+     * Gets the public 'fos_user.security.login_manager' shared service.
+     *
+     * @return \FOS\UserBundle\Security\LoginManager
+     */
+    protected function getFosUser_Security_LoginManagerService()
+    {
+        return $this->services['fos_user.security.login_manager'] = new \FOS\UserBundle\Security\LoginManager($this->get('security.token_storage'), $this->get('security.user_checker.api'), $this->get('security.authentication.session_strategy'), $this->get('request_stack'), NULL);
+    }
+
+    /**
+     * Gets the public 'fos_user.user_manager' shared service.
+     *
+     * @return \FOS\UserBundle\Doctrine\UserManager
+     */
+    protected function getFosUser_UserManagerService()
+    {
+        return $this->services['fos_user.user_manager'] = new \FOS\UserBundle\Doctrine\UserManager($this->get('fos_user.util.password_updater'), $this->get('fos_user.util.canonical_fields_updater'), $this->get('doctrine')->getManager(NULL), 'CNC\\ProductBundle\\Entity\\User');
+    }
+
+    /**
+     * Gets the public 'fos_user.username_form_type' shared service.
+     *
+     * @return \FOS\UserBundle\Form\Type\UsernameFormType
+     */
+    protected function getFosUser_UsernameFormTypeService()
+    {
+        return $this->services['fos_user.username_form_type'] = new \FOS\UserBundle\Form\Type\UsernameFormType(new \FOS\UserBundle\Form\DataTransformer\UserToUsernameTransformer($this->get('fos_user.user_manager')));
+    }
+
+    /**
+     * Gets the public 'fos_user.util.email_canonicalizer' shared service.
+     *
+     * @return \FOS\UserBundle\Util\Canonicalizer
+     */
+    protected function getFosUser_Util_EmailCanonicalizerService()
+    {
+        return $this->services['fos_user.util.email_canonicalizer'] = new \FOS\UserBundle\Util\Canonicalizer();
+    }
+
+    /**
+     * Gets the public 'fos_user.util.token_generator' shared service.
+     *
+     * @return \FOS\UserBundle\Util\TokenGenerator
+     */
+    protected function getFosUser_Util_TokenGeneratorService()
+    {
+        return $this->services['fos_user.util.token_generator'] = new \FOS\UserBundle\Util\TokenGenerator();
+    }
+
+    /**
+     * Gets the public 'fos_user.util.user_manipulator' shared service.
+     *
+     * @return \FOS\UserBundle\Util\UserManipulator
+     */
+    protected function getFosUser_Util_UserManipulatorService()
+    {
+        return $this->services['fos_user.util.user_manipulator'] = new \FOS\UserBundle\Util\UserManipulator($this->get('fos_user.user_manager'), $this->get('debug.event_dispatcher'), $this->get('request_stack'));
+    }
+
+    /**
      * Gets the public 'fragment.handler' shared service.
      *
      * @return \Symfony\Component\HttpKernel\DependencyInjection\LazyLoadingFragmentHandler
@@ -1861,7 +2376,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getJmsSerializer_DatetimeHandlerService()
     {
-        return $this->services['jms_serializer.datetime_handler'] = new \JMS\Serializer\Handler\DateHandler('Y-m-d\\TH:i:sP', 'Europe/Berlin', true);
+        return $this->services['jms_serializer.datetime_handler'] = new \JMS\Serializer\Handler\DateHandler('Y-m-d\\TH:i:sP', 'America/Halifax', true);
     }
 
     /**
@@ -2119,7 +2634,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getMonolog_Handler_MainService()
     {
-        $this->services['monolog.handler.main'] = $instance = new \Monolog\Handler\StreamHandler(($this->targetDirs[2].'\\logs/dev.log'), 100, true, NULL);
+        $this->services['monolog.handler.main'] = $instance = new \Monolog\Handler\StreamHandler(($this->targetDirs[2].'/logs/dev.log'), 100, true, NULL);
 
         $instance->pushProcessor($this->get('monolog.processor.psr_log_message'));
 
@@ -2623,21 +3138,21 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_Authentication_GuardHandlerService()
     {
-        $this->services['security.authentication.guard_handler'] = $instance = new \Symfony\Component\Security\Guard\GuardAuthenticatorHandler($this->get('security.token_storage'), $this->get('debug.event_dispatcher', ContainerInterface::NULL_ON_INVALID_REFERENCE), array());
+        $this->services['security.authentication.guard_handler'] = $instance = new \Symfony\Component\Security\Guard\GuardAuthenticatorHandler($this->get('security.token_storage'), $this->get('debug.event_dispatcher', ContainerInterface::NULL_ON_INVALID_REFERENCE), array(0 => 'api'));
 
-        $instance->setSessionAuthenticationStrategy($this->get('security.authentication.session_strategy.main'));
+        $instance->setSessionAuthenticationStrategy($this->get('security.authentication.session_strategy'));
 
         return $instance;
     }
 
     /**
-     * Gets the public 'security.authentication.session_strategy.main' shared service.
+     * Gets the public 'security.authentication.session_strategy.api' shared service.
      *
      * @return \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy
      */
-    protected function getSecurity_Authentication_SessionStrategy_MainService()
+    protected function getSecurity_Authentication_SessionStrategy_ApiService()
     {
-        return $this->services['security.authentication.session_strategy.main'] = new \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy('migrate');
+        return $this->services['security.authentication.session_strategy.api'] = new \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy('none');
     }
 
     /**
@@ -2691,7 +3206,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_EncoderFactoryService()
     {
-        return $this->services['security.encoder_factory'] = new \Symfony\Component\Security\Core\Encoder\EncoderFactory(array());
+        return $this->services['security.encoder_factory'] = new \Symfony\Component\Security\Core\Encoder\EncoderFactory(array('FOS\\UserBundle\\Model\\UserInterface' => array('class' => 'Symfony\\Component\\Security\\Core\\Encoder\\MessageDigestPasswordEncoder', 'arguments' => array(0 => 'sha512', 1 => true, 2 => 5000))));
     }
 
     /**
@@ -2701,7 +3216,25 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_FirewallService()
     {
-        return $this->services['security.firewall'] = new \Symfony\Component\Security\Http\Firewall(new \Symfony\Bundle\SecurityBundle\Security\FirewallMap($this, array('security.firewall.map.context.dev' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/(_(profiler|wdt)|css|images|js)/'), 'security.firewall.map.context.main' => NULL)), $this->get('debug.event_dispatcher'));
+        return $this->services['security.firewall'] = new \Symfony\Component\Security\Http\Firewall(new \Symfony\Bundle\SecurityBundle\Security\FirewallMap($this, array('security.firewall.map.context.dev' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/(_(profiler|wdt)|css|images|js)/'), 'security.firewall.map.context.oauth_token' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/oauth/v2/token'), 'security.firewall.map.context.api' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/'))), $this->get('debug.event_dispatcher'));
+    }
+
+    /**
+     * Gets the public 'security.firewall.map.context.api' shared service.
+     *
+     * @return \Symfony\Bundle\SecurityBundle\Security\FirewallContext
+     */
+    protected function getSecurity_Firewall_Map_Context_ApiService()
+    {
+        $a = $this->get('monolog.logger.security', ContainerInterface::NULL_ON_INVALID_REFERENCE);
+        $b = $this->get('security.token_storage');
+        $c = $this->get('security.authentication.manager');
+        $d = $this->get('fos_oauth_server.server');
+        $e = $this->get('router', ContainerInterface::NULL_ON_INVALID_REFERENCE);
+
+        $f = new \Symfony\Component\Security\Http\AccessMap();
+
+        return $this->services['security.firewall.map.context.api'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($f, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \FOS\OAuthServerBundle\Security\Firewall\OAuthListener($b, $c, $d), 2 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $f, $c)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), new \Symfony\Component\Security\Http\HttpUtils($e, $e, '{^https?://%s$}i'), 'api', new \FOS\OAuthServerBundle\Security\EntryPoint\OAuthEntryPoint($d), NULL, NULL, $a, true), NULL);
     }
 
     /**
@@ -2715,20 +3248,13 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
-     * Gets the public 'security.firewall.map.context.main' shared service.
+     * Gets the public 'security.firewall.map.context.oauth_token' shared service.
      *
      * @return \Symfony\Bundle\SecurityBundle\Security\FirewallContext
      */
-    protected function getSecurity_Firewall_Map_Context_MainService()
+    protected function getSecurity_Firewall_Map_Context_OauthTokenService()
     {
-        $a = $this->get('monolog.logger.security', ContainerInterface::NULL_ON_INVALID_REFERENCE);
-        $b = $this->get('security.token_storage');
-        $c = $this->get('security.authentication.manager');
-        $d = $this->get('router', ContainerInterface::NULL_ON_INVALID_REFERENCE);
-
-        $e = new \Symfony\Component\Security\Http\AccessMap();
-
-        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($e, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => new \Symfony\Component\Security\Core\User\InMemoryUserProvider(array())), 'main', $a, $this->get('debug.event_dispatcher', ContainerInterface::NULL_ON_INVALID_REFERENCE)), 2 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '5ba855872f85b5.18151777', $a, $c), 3 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $e, $c)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), new \Symfony\Component\Security\Http\HttpUtils($d, $d, '{^https?://%s$}i'), 'main', NULL, NULL, NULL, $a, false), NULL);
+        return $this->services['security.firewall.map.context.oauth_token'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(), NULL, NULL);
     }
 
     /**
@@ -2776,13 +3302,13 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
-     * Gets the public 'security.user_checker.main' shared service.
+     * Gets the public 'security.user_checker.api' shared service.
      *
      * @return \Symfony\Component\Security\Core\User\UserChecker
      */
-    protected function getSecurity_UserChecker_MainService()
+    protected function getSecurity_UserChecker_ApiService()
     {
-        return $this->services['security.user_checker.main'] = new \Symfony\Component\Security\Core\User\UserChecker();
+        return $this->services['security.user_checker.api'] = new \Symfony\Component\Security\Core\User\UserChecker();
     }
 
     /**
@@ -3583,18 +4109,20 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['twig.loader'] = $instance = new \Symfony\Bundle\TwigBundle\Loader\FilesystemLoader($this->get('templating.locator'), $this->get('templating.name_parser'));
 
-        $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle/Resources/views'), 'Framework');
-        $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\SecurityBundle/Resources/views'), 'Security');
-        $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\TwigBundle/Resources/views'), 'Twig');
-        $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\swiftmailer-bundle/Resources/views'), 'Swiftmailer');
-        $instance->addPath(($this->targetDirs[3].'\\vendor\\doctrine\\doctrine-bundle/Resources/views'), 'Doctrine');
-        $instance->addPath(($this->targetDirs[3].'\\vendor\\nelmio\\api-doc-bundle\\Nelmio\\ApiDocBundle/Resources/views'), 'NelmioApiDoc');
-        $instance->addPath(($this->targetDirs[3].'\\src\\CNC\\ProductBundle/Resources/views'), 'CNCProduct');
-        $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\DebugBundle/Resources/views'), 'Debug');
-        $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle/Resources/views'), 'WebProfiler');
-        $instance->addPath(($this->targetDirs[3].'\\vendor\\sensio\\distribution-bundle\\Sensio\\Bundle\\DistributionBundle/Resources/views'), 'SensioDistribution');
+        $instance->addPath(($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views'), 'Framework');
+        $instance->addPath(($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views'), 'Security');
+        $instance->addPath(($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views'), 'Twig');
+        $instance->addPath(($this->targetDirs[3].'/vendor/symfony/swiftmailer-bundle/Resources/views'), 'Swiftmailer');
+        $instance->addPath(($this->targetDirs[3].'/vendor/doctrine/doctrine-bundle/Resources/views'), 'Doctrine');
+        $instance->addPath(($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/views'), 'FOSUser');
+        $instance->addPath(($this->targetDirs[3].'/vendor/friendsofsymfony/oauth-server-bundle/Resources/views'), 'FOSOAuthServer');
+        $instance->addPath(($this->targetDirs[3].'/vendor/nelmio/api-doc-bundle/Nelmio/ApiDocBundle/Resources/views'), 'NelmioApiDoc');
+        $instance->addPath(($this->targetDirs[3].'/src/CNC/ProductBundle/Resources/views'), 'CNCProduct');
+        $instance->addPath(($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views'), 'Debug');
+        $instance->addPath(($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views'), 'WebProfiler');
+        $instance->addPath(($this->targetDirs[3].'/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/views'), 'SensioDistribution');
         $instance->addPath(($this->targetDirs[2].'/Resources/views'));
-        $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bridge\\Twig/Resources/views/Form'));
+        $instance->addPath(($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form'));
 
         return $instance;
     }
@@ -3661,10 +4189,11 @@ class appDevDebugProjectContainer extends Container
         $instance->setConstraintValidatorFactory(new \Symfony\Bundle\FrameworkBundle\Validator\ConstraintValidatorFactory($this, array('validator.expression' => 'validator.expression', 'Symfony\\Component\\Validator\\Constraints\\ExpressionValidator' => 'validator.expression', 'Symfony\\Component\\Validator\\Constraints\\EmailValidator' => 'validator.email', 'security.validator.user_password' => 'security.validator.user_password', 'Symfony\\Component\\Security\\Core\\Validator\\Constraints\\UserPasswordValidator' => 'security.validator.user_password', 'doctrine.orm.validator.unique' => 'doctrine.orm.validator.unique', 'Symfony\\Bridge\\Doctrine\\Validator\\Constraints\\UniqueEntityValidator' => 'doctrine.orm.validator.unique')));
         $instance->setTranslator($this->get('translator'));
         $instance->setTranslationDomain('validators');
-        $instance->addXmlMappings(array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/config/validation.xml')));
+        $instance->addXmlMappings(array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/config/validation.xml'), 1 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/config/validation.xml'), 2 => ($this->targetDirs[3].'/vendor/friendsofsymfony/oauth-server-bundle/Resources/config/validation.xml')));
         $instance->enableAnnotationMapping($this->get('annotation_reader'));
         $instance->addMethodMapping('loadValidatorMetadata');
-        $instance->addObjectInitializers(array(0 => $this->get('doctrine.orm.validator_initializer')));
+        $instance->addObjectInitializers(array(0 => $this->get('doctrine.orm.validator_initializer'), 1 => new \FOS\UserBundle\Validator\Initializer($this->get('fos_user.util.canonical_fields_updater'))));
+        $instance->addXmlMapping(($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/DependencyInjection/Compiler/../../Resources/config/storage-validation/orm.xml'));
 
         return $instance;
     }
@@ -3785,6 +4314,16 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the private 'fos_oauth_server.entity_manager' shared service.
+     *
+     * @return \Doctrine\ORM\EntityManager
+     */
+    protected function getFosOauthServer_EntityManagerService()
+    {
+        return $this->services['fos_oauth_server.entity_manager'] = $this->get('doctrine')->getManager(NULL);
+    }
+
+    /**
      * Gets the private 'fos_rest.allowed_methods_loader' shared service.
      *
      * @return \FOS\RestBundle\Response\AllowedMethodsLoader\AllowedMethodsRouterLoader
@@ -3832,6 +4371,28 @@ class appDevDebugProjectContainer extends Container
     protected function getFosRest_Serializer_JmsHandlerRegistry_InnerService()
     {
         return $this->services['fos_rest.serializer.jms_handler_registry.inner'] = new \JMS\Serializer\Handler\LazyHandlerRegistry($this, array(1 => array('Exception' => array('json' => array(0 => 'fos_rest.serializer.exception_normalizer.jms', 1 => 'serializeToJson'), 'xml' => array(0 => 'fos_rest.serializer.exception_normalizer.jms', 1 => 'serializeToXml')), 'DateTime' => array('json' => array(0 => 'jms_serializer.datetime_handler', 1 => 'serializeDateTime'), 'xml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'serializeDateTime'), 'yml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'serializeDateTime')), 'DateTimeImmutable' => array('json' => array(0 => 'jms_serializer.datetime_handler', 1 => 'serializeDateTimeImmutable'), 'xml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'serializeDateTimeImmutable'), 'yml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'serializeDateTimeImmutable')), 'DateInterval' => array('json' => array(0 => 'jms_serializer.datetime_handler', 1 => 'serializeDateInterval'), 'xml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'serializeDateInterval'), 'yml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'serializeDateInterval')), 'ArrayCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection')), 'Doctrine\\Common\\Collections\\ArrayCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection')), 'Doctrine\\ORM\\PersistentCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection')), 'Doctrine\\ODM\\MongoDB\\PersistentCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection')), 'Doctrine\\ODM\\PHPCR\\PersistentCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection')), 'PhpCollection\\Sequence' => array('json' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'serializeSequence'), 'xml' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'serializeSequence'), 'yml' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'serializeSequence')), 'PhpCollection\\Map' => array('json' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'serializeMap'), 'xml' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'serializeMap'), 'yml' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'serializeMap')), 'Symfony\\Component\\Validator\\ConstraintViolationList' => array('xml' => array(0 => 'jms_serializer.constraint_violation_handler', 1 => 'serializeListToxml'), 'json' => array(0 => 'jms_serializer.constraint_violation_handler', 1 => 'serializeListTojson'), 'yml' => array(0 => 'jms_serializer.constraint_violation_handler', 1 => 'serializeListToyml')), 'Symfony\\Component\\Validator\\ConstraintViolation' => array('xml' => array(0 => 'jms_serializer.constraint_violation_handler', 1 => 'serializeViolationToxml'), 'json' => array(0 => 'jms_serializer.constraint_violation_handler', 1 => 'serializeViolationTojson'), 'yml' => array(0 => 'jms_serializer.constraint_violation_handler', 1 => 'serializeViolationToyml')), 'Symfony\\Component\\Form\\Form' => array('xml' => array(0 => 'fos_rest.serializer.form_error_handler', 1 => 'serializeFormToxml'), 'json' => array(0 => 'fos_rest.serializer.form_error_handler', 1 => 'serializeFormTojson'), 'yml' => array(0 => 'fos_rest.serializer.form_error_handler', 1 => 'serializeFormToyml')), 'Symfony\\Component\\Form\\FormError' => array('xml' => array(0 => 'fos_rest.serializer.form_error_handler', 1 => 'serializeFormErrorToxml'), 'json' => array(0 => 'fos_rest.serializer.form_error_handler', 1 => 'serializeFormErrorTojson'), 'yml' => array(0 => 'fos_rest.serializer.form_error_handler', 1 => 'serializeFormErrorToyml'))), 2 => array('DateTime' => array('json' => array(0 => 'jms_serializer.datetime_handler', 1 => 'deserializeDateTimeFromjson'), 'xml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'deserializeDateTimeFromxml'), 'yml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'deserializeDateTimeFromyml')), 'DateTimeImmutable' => array('json' => array(0 => 'jms_serializer.datetime_handler', 1 => 'deserializeDateTimeImmutableFromjson'), 'xml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'deserializeDateTimeImmutableFromxml'), 'yml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'deserializeDateTimeImmutableFromyml')), 'DateInterval' => array('json' => array(0 => 'jms_serializer.datetime_handler', 1 => 'deserializeDateIntervalFromjson'), 'xml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'deserializeDateIntervalFromxml'), 'yml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'deserializeDateIntervalFromyml')), 'ArrayCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection')), 'Doctrine\\Common\\Collections\\ArrayCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection')), 'Doctrine\\ORM\\PersistentCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection')), 'Doctrine\\ODM\\MongoDB\\PersistentCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection')), 'Doctrine\\ODM\\PHPCR\\PersistentCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection')), 'PhpCollection\\Sequence' => array('json' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'deserializeSequence'), 'xml' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'deserializeSequence'), 'yml' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'deserializeSequence')), 'PhpCollection\\Map' => array('json' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'deserializeMap'), 'xml' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'deserializeMap'), 'yml' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'deserializeMap')))));
+    }
+
+    /**
+     * Gets the private 'fos_user.util.canonical_fields_updater' shared service.
+     *
+     * @return \FOS\UserBundle\Util\CanonicalFieldsUpdater
+     */
+    protected function getFosUser_Util_CanonicalFieldsUpdaterService()
+    {
+        $a = $this->get('fos_user.util.email_canonicalizer');
+
+        return $this->services['fos_user.util.canonical_fields_updater'] = new \FOS\UserBundle\Util\CanonicalFieldsUpdater($a, $a);
+    }
+
+    /**
+     * Gets the private 'fos_user.util.password_updater' shared service.
+     *
+     * @return \FOS\UserBundle\Util\PasswordUpdater
+     */
+    protected function getFosUser_Util_PasswordUpdaterService()
+    {
+        return $this->services['fos_user.util.password_updater'] = new \FOS\UserBundle\Util\PasswordUpdater($this->get('security.encoder_factory'));
     }
 
     /**
@@ -3901,11 +4462,21 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_Authentication_ManagerService()
     {
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('5ba855872f85b5.18151777')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \FOS\OAuthServerBundle\Security\Authentication\Provider\OAuthProvider(new \Symfony\Component\Security\Core\User\InMemoryUserProvider(array()), $this->get('fos_oauth_server.server'), $this->get('security.user_checker.api'))), true);
 
         $instance->setEventDispatcher($this->get('debug.event_dispatcher'));
 
         return $instance;
+    }
+
+    /**
+     * Gets the private 'security.authentication.session_strategy' shared service.
+     *
+     * @return \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy
+     */
+    protected function getSecurity_Authentication_SessionStrategyService()
+    {
+        return $this->services['security.authentication.session_strategy'] = new \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy('migrate');
     }
 
     /**
@@ -4035,7 +4606,7 @@ class appDevDebugProjectContainer extends Container
             'kernel.debug' => true,
             'kernel.name' => 'app',
             'kernel.cache_dir' => __DIR__,
-            'kernel.logs_dir' => ($this->targetDirs[2].'\\logs'),
+            'kernel.logs_dir' => ($this->targetDirs[2].'/logs'),
             'kernel.bundles' => array(
                 'FrameworkBundle' => 'Symfony\\Bundle\\FrameworkBundle\\FrameworkBundle',
                 'SecurityBundle' => 'Symfony\\Bundle\\SecurityBundle\\SecurityBundle',
@@ -4045,6 +4616,8 @@ class appDevDebugProjectContainer extends Container
                 'DoctrineBundle' => 'Doctrine\\Bundle\\DoctrineBundle\\DoctrineBundle',
                 'SensioFrameworkExtraBundle' => 'Sensio\\Bundle\\FrameworkExtraBundle\\SensioFrameworkExtraBundle',
                 'FOSRestBundle' => 'FOS\\RestBundle\\FOSRestBundle',
+                'FOSUserBundle' => 'FOS\\UserBundle\\FOSUserBundle',
+                'FOSOAuthServerBundle' => 'FOS\\OAuthServerBundle\\FOSOAuthServerBundle',
                 'JMSSerializerBundle' => 'JMS\\SerializerBundle\\JMSSerializerBundle',
                 'NelmioCorsBundle' => 'Nelmio\\CorsBundle\\NelmioCorsBundle',
                 'NelmioApiDocBundle' => 'Nelmio\\ApiDocBundle\\NelmioApiDocBundle',
@@ -4058,87 +4631,97 @@ class appDevDebugProjectContainer extends Container
             'kernel.bundles_metadata' => array(
                 'FrameworkBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle'),
+                    'path' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle'),
                     'namespace' => 'Symfony\\Bundle\\FrameworkBundle',
                 ),
                 'SecurityBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\SecurityBundle'),
+                    'path' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle'),
                     'namespace' => 'Symfony\\Bundle\\SecurityBundle',
                 ),
                 'TwigBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\TwigBundle'),
+                    'path' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle'),
                     'namespace' => 'Symfony\\Bundle\\TwigBundle',
                 ),
                 'MonologBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\symfony\\monolog-bundle'),
+                    'path' => ($this->targetDirs[3].'/vendor/symfony/monolog-bundle'),
                     'namespace' => 'Symfony\\Bundle\\MonologBundle',
                 ),
                 'SwiftmailerBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\symfony\\swiftmailer-bundle'),
+                    'path' => ($this->targetDirs[3].'/vendor/symfony/swiftmailer-bundle'),
                     'namespace' => 'Symfony\\Bundle\\SwiftmailerBundle',
                 ),
                 'DoctrineBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\doctrine\\doctrine-bundle'),
+                    'path' => ($this->targetDirs[3].'/vendor/doctrine/doctrine-bundle'),
                     'namespace' => 'Doctrine\\Bundle\\DoctrineBundle',
                 ),
                 'SensioFrameworkExtraBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\sensio\\framework-extra-bundle'),
+                    'path' => ($this->targetDirs[3].'/vendor/sensio/framework-extra-bundle'),
                     'namespace' => 'Sensio\\Bundle\\FrameworkExtraBundle',
                 ),
                 'FOSRestBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\rest-bundle'),
+                    'path' => ($this->targetDirs[3].'/vendor/friendsofsymfony/rest-bundle'),
                     'namespace' => 'FOS\\RestBundle',
+                ),
+                'FOSUserBundle' => array(
+                    'parent' => NULL,
+                    'path' => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle'),
+                    'namespace' => 'FOS\\UserBundle',
+                ),
+                'FOSOAuthServerBundle' => array(
+                    'parent' => NULL,
+                    'path' => ($this->targetDirs[3].'/vendor/friendsofsymfony/oauth-server-bundle'),
+                    'namespace' => 'FOS\\OAuthServerBundle',
                 ),
                 'JMSSerializerBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\jms\\serializer-bundle'),
+                    'path' => ($this->targetDirs[3].'/vendor/jms/serializer-bundle'),
                     'namespace' => 'JMS\\SerializerBundle',
                 ),
                 'NelmioCorsBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\nelmio\\cors-bundle'),
+                    'path' => ($this->targetDirs[3].'/vendor/nelmio/cors-bundle'),
                     'namespace' => 'Nelmio\\CorsBundle',
                 ),
                 'NelmioApiDocBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\nelmio\\api-doc-bundle\\Nelmio\\ApiDocBundle'),
+                    'path' => ($this->targetDirs[3].'/vendor/nelmio/api-doc-bundle/Nelmio/ApiDocBundle'),
                     'namespace' => 'Nelmio\\ApiDocBundle',
                 ),
                 'AppBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\src\\AppBundle'),
+                    'path' => ($this->targetDirs[3].'/src/AppBundle'),
                     'namespace' => 'AppBundle',
                 ),
                 'CNCProductBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\src\\CNC\\ProductBundle'),
+                    'path' => ($this->targetDirs[3].'/src/CNC/ProductBundle'),
                     'namespace' => 'CNC\\ProductBundle',
                 ),
                 'DebugBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\DebugBundle'),
+                    'path' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle'),
                     'namespace' => 'Symfony\\Bundle\\DebugBundle',
                 ),
                 'WebProfilerBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle'),
+                    'path' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle'),
                     'namespace' => 'Symfony\\Bundle\\WebProfilerBundle',
                 ),
                 'SensioDistributionBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\sensio\\distribution-bundle\\Sensio\\Bundle\\DistributionBundle'),
+                    'path' => ($this->targetDirs[3].'/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle'),
                     'namespace' => 'Sensio\\Bundle\\DistributionBundle',
                 ),
                 'SensioGeneratorBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\sensio\\generator-bundle'),
+                    'path' => ($this->targetDirs[3].'/vendor/sensio/generator-bundle'),
                     'namespace' => 'Sensio\\Bundle\\GeneratorBundle',
                 ),
             ),
@@ -4147,8 +4730,8 @@ class appDevDebugProjectContainer extends Container
             'database_host' => '127.0.0.1',
             'database_port' => 3306,
             'database_name' => 'cuponatic',
-            'database_user' => 'root',
-            'database_password' => NULL,
+            'database_user' => 'hioks',
+            'database_password' => 'root',
             'mailer_transport' => 'smtp',
             'mailer_host' => '127.0.0.1',
             'mailer_user' => NULL,
@@ -4602,6 +5185,67 @@ class appDevDebugProjectContainer extends Container
             'sensio_framework_extra.converter.datetime.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\Request\\ParamConverter\\DateTimeParamConverter',
             'sensio_framework_extra.view.listener.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\TemplateListener',
             'fos_rest.format_listener.rules' => NULL,
+            'fos_user.backend_type_orm' => true,
+            'fos_user.security.interactive_login_listener.class' => 'FOS\\UserBundle\\EventListener\\LastLoginListener',
+            'fos_user.security.login_manager.class' => 'FOS\\UserBundle\\Security\\LoginManager',
+            'fos_user.resetting.email.template' => '@FOSUser/Resetting/email.txt.twig',
+            'fos_user.registration.confirmation.template' => '@FOSUser/Registration/email.txt.twig',
+            'fos_user.storage' => 'orm',
+            'fos_user.firewall_name' => 'api',
+            'fos_user.model_manager_name' => NULL,
+            'fos_user.model.user.class' => 'CNC\\ProductBundle\\Entity\\User',
+            'fos_user.profile.form.type' => 'FOS\\UserBundle\\Form\\Type\\ProfileFormType',
+            'fos_user.profile.form.name' => 'fos_user_profile_form',
+            'fos_user.profile.form.validation_groups' => array(
+                0 => 'Profile',
+                1 => 'Default',
+            ),
+            'fos_user.registration.confirmation.from_email' => array(
+                'hioks@hioksmail.com' => 'Hioks',
+            ),
+            'fos_user.registration.confirmation.enabled' => false,
+            'fos_user.registration.form.type' => 'FOS\\UserBundle\\Form\\Type\\RegistrationFormType',
+            'fos_user.registration.form.name' => 'fos_user_registration_form',
+            'fos_user.registration.form.validation_groups' => array(
+                0 => 'Registration',
+                1 => 'Default',
+            ),
+            'fos_user.change_password.form.type' => 'FOS\\UserBundle\\Form\\Type\\ChangePasswordFormType',
+            'fos_user.change_password.form.name' => 'fos_user_change_password_form',
+            'fos_user.change_password.form.validation_groups' => array(
+                0 => 'ChangePassword',
+                1 => 'Default',
+            ),
+            'fos_user.resetting.email.from_email' => array(
+                'hioks@hioksmail.com' => 'Hioks',
+            ),
+            'fos_user.resetting.retry_ttl' => 7200,
+            'fos_user.resetting.token_ttl' => 86400,
+            'fos_user.resetting.form.type' => 'FOS\\UserBundle\\Form\\Type\\ResettingFormType',
+            'fos_user.resetting.form.name' => 'fos_user_resetting_form',
+            'fos_user.resetting.form.validation_groups' => array(
+                0 => 'ResetPassword',
+                1 => 'Default',
+            ),
+            'fos_oauth_server.server.class' => 'OAuth2\\OAuth2',
+            'fos_oauth_server.security.authentication.provider.class' => 'FOS\\OAuthServerBundle\\Security\\Authentication\\Provider\\OAuthProvider',
+            'fos_oauth_server.security.authentication.listener.class' => 'FOS\\OAuthServerBundle\\Security\\Firewall\\OAuthListener',
+            'fos_oauth_server.security.entry_point.class' => 'FOS\\OAuthServerBundle\\Security\\EntryPoint\\OAuthEntryPoint',
+            'fos_oauth_server.server.options' => array(
+
+            ),
+            'fos_oauth_server.model_manager_name' => NULL,
+            'fos_oauth_server.model.client.class' => 'CNC\\ProductBundle\\Entity\\Client',
+            'fos_oauth_server.model.access_token.class' => 'CNC\\ProductBundle\\Entity\\AccessToken',
+            'fos_oauth_server.model.refresh_token.class' => 'CNC\\ProductBundle\\Entity\\RefreshToken',
+            'fos_oauth_server.model.auth_code.class' => 'CNC\\ProductBundle\\Entity\\AuthCode',
+            'fos_oauth_server.template.engine' => 'twig',
+            'fos_oauth_server.authorize.form.type' => 'FOS\\OAuthServerBundle\\Form\\Type\\AuthorizeFormType',
+            'fos_oauth_server.authorize.form.name' => 'fos_oauth_server_authorize_form',
+            'fos_oauth_server.authorize.form.validation_groups' => array(
+                0 => 'Authorize',
+                1 => 'Default',
+            ),
             'jms_serializer.metadata.file_locator.class' => 'Metadata\\Driver\\FileLocator',
             'jms_serializer.metadata.annotation_driver.class' => 'JMS\\Serializer\\Metadata\\Driver\\AnnotationDriver',
             'jms_serializer.metadata.chain_driver.class' => 'Metadata\\Driver\\DriverChain',
@@ -4831,7 +5475,15 @@ class appDevDebugProjectContainer extends Container
                 21 => 'doctrine.query_sql_command',
                 22 => 'doctrine.schema_update_command',
                 23 => 'doctrine.schema_validate_command',
-                24 => 'sensio_distribution.security_checker.command',
+                24 => 'fos_user.command.activate_user',
+                25 => 'fos_user.command.change_password',
+                26 => 'fos_user.command.create_user',
+                27 => 'fos_user.command.deactivate_user',
+                28 => 'fos_user.command.demote_user',
+                29 => 'fos_user.command.promote_user',
+                30 => 'fos_oauth_server.clean_command',
+                31 => 'fos_oauth_server.create_client_command',
+                32 => 'sensio_distribution.security_checker.command',
             ),
             'nelmio_api_doc.parser.form_type_parser.class' => 'Nelmio\\ApiDocBundle\\Parser\\FormTypeParser',
             'nelmio_api_doc.parser.validation_parser.class' => 'Nelmio\\ApiDocBundle\\Parser\\ValidationParser',
